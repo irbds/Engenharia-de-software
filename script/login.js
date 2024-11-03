@@ -12,10 +12,12 @@ function login() {
         senha: senha.value        
     }
 
-    if (validarLogin(usuarioDigitado) == null) {
+    const usuarioValidado = validarLogin(usuarioDigitado)
+    
+    if (usuarioValidado == null) {
         alert('Email e/ou senha invalidos')
     } else {
-        //fazer login
+        fazerLogin(usuarioValidado)
     }
 }
 
@@ -45,4 +47,14 @@ function validarLogin(usuario) {
     return usuarioValidado
 
     
+}
+
+
+function fazerLogin(usuario) {
+    const usuarioLogado = {
+        estaLogado: true,
+        id: usuario.id
+    }
+
+    localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado))
 }
