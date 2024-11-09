@@ -12,20 +12,34 @@
     </header>
     
     <form action="" class="form_cadastro">
-        <div>
-            <label for="nome">Nome: <input type="text" name="nome" id="nome" required></label>
+        <div class="div_form">
+            <label for="nome">Nome: <input type="text" class="input_cadastro" name="nome" id="nome" required></label>
         </div>
         <br>
-        <div>
+        <div class="div_form">
             <label>
-                CPF:<input type="radio" id="cpf" name="escolha" value="cpf" onclick="mostrar_cpf()">
-                CNPJ:<input type="radio" id="cnpj" name="escolha" value="cnpj" onclick="mostrar_cnpj()">
+                CPF:<input type="radio" class="escolha" id="cpf" name="escolha" value="cpf" onclick="mostrar_cpf()">
+                CNPJ:<input type="radio" class="escolha" id="cnpj" name="escolha" value="cnpj" onclick="mostrar_cnpj()">
             </label>
             <br><br>
             <label for="input_cp" id="label_cp" style="display: none;">
-                <input type="number" name="numero" id="input_cp">
+                &nbsp;<input type="number" class="input_cadastro" name="numero" id="input_cp" required>
             </label>
         </div>
+        <br>
+        <div class="div_form">
+            <label for="email">
+                Email: <input type="email" class="input_cadastro" name="email" id="email">
+            </label>
+        </div>
+        <br>
+        <div class="div_form">
+            <label for="nascimento/fundacao">
+                Data de Nascimento(ou fundação): <input type="date" name="nasc_fund" id="nasc_fund" value="" onchange="formatar_data()">
+            </label>
+        </div>
+        <br>
+        <input type="submit" name="cadastrar" id="cadastrar" value="Cadastrar">
     </form>
     
 </body>
