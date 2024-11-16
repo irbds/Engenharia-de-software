@@ -1,11 +1,48 @@
+/*CSS HEADER */
+html, body {
+    height: 100%;
+}
+
+header {
+    height: 20%;
+}
+
+.header {
+    height: 100%;
+}
+
 .aling-right {
     display: flex;
+    align-items: center;
     justify-content: flex-end;
+    height: 30%;
     background-color: black;
 }
 
 .border-right {
-    width: 10%;
-    background-color: white;
     text-align: center;
+    width: 10%;
 }
+
+.menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 70%;
+    margin: 0 5% 0 5%;
+}
+
+.search-form {
+    width: 130%;
+}
+
+.texto-style {
+    color: white;
+}
+
+.header-link {
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+/*FIM CSS HEADER*/
