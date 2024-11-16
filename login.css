@@ -1,0 +1,11 @@
+.aling-right {
+    display: flex;
+    justify-content: flex-end;
+    background-color: black;
+}
+
+.border-right {
+    width: 10%;
+    background-color: white;
+    text-align: center;
+}
