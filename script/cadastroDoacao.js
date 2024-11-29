@@ -4,6 +4,10 @@ const valorDoacao = document.getElementById('doacao')
 const dataFinal = document.getElementById('dataFinal')
 
 function cadastrarDoacao() {
+    if (camposEstaoVazios()) {
+        alert('Preencha os campos')
+    }
+    
     let dataCriacao = getDate()
     const doacao = {
         id: localStorage.length,
@@ -25,4 +29,13 @@ function getDate() {
     let data = `${dia}/${mes}/${ano}`
 
     return data
+}
+
+
+function camposEstaoVazios() {
+    if (nomeDoacao.value == '' || valorDoacao.value == '' || descricao.value == '' || dataFinal.value) {
+        return true
+    }
+
+    return false
 }
