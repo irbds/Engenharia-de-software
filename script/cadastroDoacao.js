@@ -7,7 +7,7 @@ function cadastrarDoacao() {
     if (camposEstaoVazios()) {
         alert('Preencha os campos')
     }
-    
+
     let dataCriacao = getDate()
     const doacao = {
         id: localStorage.length,
@@ -18,6 +18,8 @@ function cadastrarDoacao() {
         data_final: dataFinal.value,
         valor_doado: 0
     }
+
+    localStorage.setItem(localStorage.length, JSON.stringify(doacao))
 }
 
 function getDate() {
