@@ -17,5 +17,12 @@ function cadastrarDoacao() {
 }
 
 function getDate() {
-    
+    let dataAtual = new Date()
+    let dia = dataAtual.getDay()
+    let mes = dataAtual.getMonth()
+    let ano = dataAtual.getFullYear()
+
+    let data = `${dia}/${mes}/${ano}`
+
+    return data
 }
