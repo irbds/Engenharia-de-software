@@ -12,6 +12,7 @@ function cadastrarDoacao() {
 
     if (camposEstaoVazios()) {
         alert('Preencha os campos')
+        return
     }
 
     let dataCriacao = getDate()
@@ -25,7 +26,7 @@ function cadastrarDoacao() {
         valor_doado: 0
     }
 
-    localStorage.setItem(localStorage.length, JSON.stringify(doacao))
+    salvarDoacao(doacao, idUsuario)
 }
 
 function getDate() {
@@ -49,7 +50,7 @@ function camposEstaoVazios() {
 }
 
 
-
+// Verifica se o usuario esta logado, retorna o id do usuario logado ou 0 se não estiver logado 
 function estaLogado() {
     const usuario = JSON.parse(localStorage.getItem('usuarioLogado'))
 
@@ -59,4 +60,22 @@ function estaLogado() {
 
 
     return usuario.id
+}
+
+// Salva no localStorage a doação e adiciona no array de doacoes criadas pelo usuario
+function salvarDoacao(doacao, idUsuario) {
+    localStorage.setItem(localStorage.length, JSON.stringify(doacao))
+
+    for(key in localStorage) {
+        let objeto = JSON.parse(localStorage.getItem(key))
+
+        if (objeto && objeto.hasOwnProperty('cpf_cnpj')) { // Verifica se o objeto é um usuario
+            if (objeto.id == idUsuario) {// Localiza o usuario logado
+                let codigoDasDoacoes = objeto.codigoDasDoacoes
+                codigoDasDoacoes.push(doacao.id) // Adiciona o id da doação no array
+
+                localStorage.setItem(key, JSON.stringify(objeto)) // Salva o usuario novamente com a mesma key
+            }
+        }
+    }
 }
