@@ -73,6 +73,7 @@ function salvarDoacao(doacao, idUsuario) {
             if (objeto.id == idUsuario) {// Localiza o usuario logado
                 let codigoDasDoacoes = objeto.codigoDasDoacoes
                 codigoDasDoacoes.push(doacao.id) // Adiciona o id da doação no array
+                objeto.codigoDasDoacoes = codigoDasDoacoes // Adiciona o array com a nova doação ao usuario
 
                 localStorage.setItem(key, JSON.stringify(objeto)) // Salva o usuario novamente com a mesma key
             }
