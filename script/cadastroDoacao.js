@@ -4,6 +4,12 @@ const valorDoacao = document.getElementById('doacao')
 const dataFinal = document.getElementById('dataFinal')
 
 function cadastrarDoacao() {
+    let idUsuario = estaLogado()
+    if (idUsuario == 0) {
+        alert('Faça login para acessar esse serviço')
+        return
+    }
+
     if (camposEstaoVazios()) {
         alert('Preencha os campos')
     }
@@ -40,4 +46,17 @@ function camposEstaoVazios() {
     }
 
     return false
+}
+
+
+
+function estaLogado() {
+    const usuario = JSON.parse(localStorage.getItem('usuarioLogado'))
+
+    if (usuario == null || usuario.estaLogado == false) {
+        return 0
+    }
+
+
+    return usuario.id
 }
